@@ -1,61 +1,31 @@
-//var, const, let - all ways to define variables 
-
-//const - cannot modify once declared
-//let - can modify in certain circumstances
-
-const details = document.querySelector('summary');
-
-//toggle stats
-document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) => {
-  //console.log(details.parentNode);
-  if(details.parentNode.getAttribute('open')){
-    details.parentNode.removeAttribute('open');
-  }
-  else{
-    details.parentNode.setAttribute('open', 'open');
-
-  }
+document.querySelector(".duplicateBtn").addEventListener("click", function(e){
+  const div = document.querySelector(".mainWrapper");
+  let division = div.cloneNode(true);
+  document.body.appendChild(division);
 });
 
-//duplicate
-document.querySelector('.duplicate').addEventListener('click', (e) => {
-  
-  //could also name const item-clone
-  const itemClone = document.querySelector('.wrapper').cloneNode(true);
-  document.body.appendChild(itemClone);
-
+//JavaScript Hover implementation
+document.querySelector("div").addEventListener("mouseover", function (e) {
+const div = document.querySelector(".mainWrapper");
+div.style.borderColor = "white";
 });
 
-/*
-document.querySelector('.wrapper').addEventListener('mouseenter', (e) => {
-    alert('haha');
-});
-*/
-
-//delete
-document.querySelector('button[data-delete-btn]').addEventListener('click', function(e) {
-  let wantsTo = confirm("are you sure?");
-    //if press 'ok' and last card isn't the OG card, then do it
-
-  if (wantsTo) {
-    if (document.querySelector('.wrapper:last-child') !== document.querySelector('.wrapper')) {
-      document.querySelector('.wrapper:last-child').remove();    
-    }
-    else {
-      alert("borzoi is forever!");
-    }
-  }
+document.querySelector("div").addEventListener("mouseout", function (e) {
+const div = document.querySelector(".mainWrapper");
+div.style.borderColor = "black";
 });
 
-
-
-
-//modify heading
-//if you use an id instead of a class, it would be document.querySelector('#modify');
-document.querySelector('.modify').addEventListener('click', (e) => {  
-  let name = prompt('rename the borzoi!');
-  if(name) {
-    document.querySelector('.wrapper').querySelector('h3').innerText = name;
-  }
+//When the card is clicked the color changes
+document.querySelector(".changeColorBtn").addEventListener("click", function (e) {
+const div = document.querySelector(".mainWrapper");
+div.style.backgroundColor = "gray";
 });
 
+document.querySelector(".ChangeHeadingBtn").addEventListener("click", function (e) {
+heading.innerHTML = "Something else"; //replaces the text of the heading
+});
+
+document.querySelector(".deleteBtn").addEventListener("click", function (e) {
+  let div = document.querySelector(".mainWrapper");
+  div.remove();
+});
